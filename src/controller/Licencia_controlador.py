@@ -5,6 +5,7 @@ class Licencia_controlador():
 
     __empleados = list()
 
+#Persona
 def buscarPersona(self, nroLegajoBuscado):
     empleadoBuscado = None
     for e in self.__empleados:
@@ -27,6 +28,8 @@ def delPersona(self, nroLegajoBuscado):
     else:
         print("Ocurrio un error al intentar dar de baja el empleado (No se encontró el empleado con el nro de legajo)")  
 
+
+#dias correspondientes
 def generarDias_correspondiente(self, nroLegajoBuscado, diasCorrespNew):
     empleado=buscarPersona(self, nroLegajoBuscado)
     if(empleado!=None):
@@ -47,3 +50,23 @@ def bajaDias_correspondiente(self, nroLegajoBuscado, diasCorrespBaja):
             print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontraron los días")
     else:
         print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontró el empleado con el nro de legajo)")
+
+#Licencias
+def varificarDias(self, diasCorrespoBuscar,fecha_verificar):
+    existe=False
+    for d in diasCorrespoBuscar:
+        if((d.getFecha() == fecha_verificar) and (d.getEstado()==True)):#si coincide las fechas de la lic con un dias corresp y está activo
+            existe=True
+            break
+    return existe
+
+def generarLicencia(self, nroLegajoBuscado, newLicencia):
+    empleado=buscarPersona(self, nroLegajoBuscado)
+    if(empleado!=None):
+        if(empleado.buscarLicencia(newLicencia.getFecha_ini(),newLicencia.getFecha_fin()) == None):#si la Lic no existe
+           #verificar que existe los dias correspondientes
+            varificarDias(self,empleado.getDias_correspondiente(), newLicencia.getFecha_de_anio())
+        else:
+            print("Ocurrio un error al intentar generar licencia al empleado (Ya existe la licencia con esas fechas para el empleado con el nro de legajo)")
+    else:
+        print("Ocurrio un error al intentar generar licencia al empleado (No se encontró el empleado con el nro de legajo)")

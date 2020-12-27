@@ -32,9 +32,12 @@ def setEstado(self, estado):
 def addDias_correspondiente(self, diasNew):
    self.__dias_correspondientes.append(diasNew)
 
+def addLicencia(self, licenciaNew):
+   self.__dias_correspondientes.append(licenciaNew)
+
 #getters
 def getNroLegajo(self):
-   return self.__fech__nro_legajoa_inicio
+   return self.__nro_legajoa_inicio
 
 def getNombreApe(self):
    return self.__nombre_apellido
@@ -48,6 +51,10 @@ def getEstado(self):
 def getDias_correspondiente(self):
    return self.__dias_correspondientes
 
+def getLicencias(self):
+   return self.__licencias
+
+#buscar
 def buscarDias_correspondiente(self, fecha_ini_busc, cantidadDiasBus):
    dias_buscados=None
    for d in self.__dias_correspondientes:
@@ -55,3 +62,11 @@ def buscarDias_correspondiente(self, fecha_ini_busc, cantidadDiasBus):
          dias_buscados=d
          break
    return dias_buscados
+
+def buscarLicencia(self, fecha_ini_busc, fecha_fin_busc):
+   lic_buscados=None
+   for l in self.__licencias:
+      if((l.getFecha_ini()==fecha_ini_busc) and (l.getFecha_fin()==fecha_fin_busc())):
+         lic_buscados=l
+         break
+   return lic_buscados
