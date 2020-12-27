@@ -1,6 +1,6 @@
 class Licencia_controlador():
     #construct
-    def __init__(self,ListEmpleados):  
+    def __init__(self, ListEmpleados):  
         self.__empleados=ListEmpleados
 
     __empleados = list()
@@ -27,7 +27,23 @@ def delPersona(self, nroLegajoBuscado):
     else:
         print("Ocurrio un error al intentar dar de baja el empleado (No se encontró el empleado con el nro de legajo)")  
 
-def addDias_correspondiente(self,nroLegajoBuscado, diasCorrespNew):
-    empleado=buscarPersona(nroLegajoBuscado)
+def generarDias_correspondiente(self, nroLegajoBuscado, diasCorrespNew):
+    empleado=buscarPersona(self, nroLegajoBuscado)
     if(empleado!=None):
-        empleado
+        diasDuplicado = empleado.buscarDias_correspondiente(diasCorrespNew)
+        if(diasDuplicado==None):#si no esta repetido
+            empleado.addDias_correspondiente(diasCorrespNew)
+        else:
+            print("Ocurrio un error al intentar dar días al empleado (Ya existen esos días asociados al nro de legajo)")
+    else:
+        print("Ocurrio un error al intentar dar días al empleado (No se encontró el empleado con el nro de legajo)")
+
+def bajaDias_correspondiente(self, nroLegajoBuscado, diasCorrespBaja):
+    empleado=buscarPersona(self, nroLegajoBuscado)
+    if(empleado!=None):
+        if(empleado.buscarDias_correspondiente(diasCorrespBaja) != None):
+            empleado.buscarDias_correspondiente(diasCorrespBaja).setEstado(False)
+        else:
+            print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontraron los días")
+    else:
+        print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontró el empleado con el nro de legajo)")

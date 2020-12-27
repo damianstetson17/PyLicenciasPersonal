@@ -47,3 +47,11 @@ def getEstado(self):
 
 def getDias_correspondiente(self):
    return self.__dias_correspondientes
+
+def buscarDias_correspondiente(self, fecha_ini_busc, cantidadDiasBus):
+   dias_buscados=None
+   for d in self.__dias_correspondientes:
+      if((d.getFecha()==fecha_ini_busc) and (d.getDias()==cantidadDiasBus)):
+         dias_buscados=d
+         break
+   return dias_buscados
