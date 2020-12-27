@@ -29,6 +29,9 @@ def setAntiguedad(self, antiNew):
 def setEstado(self, estado):
    self.__activo=estado
 
+def addDias_correspondiente(self, diasNew):
+   self.__dias_correspondientes.append(diasNew)
+
 #getters
 def getNroLegajo(self):
    return self.__fech__nro_legajoa_inicio
@@ -41,3 +44,6 @@ def getAntiguedad(self):
 
 def getEstado(self):
    return self.__activo
+
+def getDias_correspondiente(self):
+   return self.__dias_correspondientes
