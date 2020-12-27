@@ -55,10 +55,10 @@ def getLicencias(self):
    return self.__licencias
 
 #buscar
-def buscarDias_correspondiente(self, fecha_ini_busc, cantidadDiasBus):
+def buscarDias_correspondiente(self, fecha_ini_busc):
    dias_buscados=None
    for d in self.__dias_correspondientes:
-      if((d.getFecha()==fecha_ini_busc) and (d.getDias()==cantidadDiasBus)):
+      if(d.getFecha()==fecha_ini_busc):
          dias_buscados=d
          break
    return dias_buscados

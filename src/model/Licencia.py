@@ -32,3 +32,6 @@ def getFecha_fin(self):
 
 def getFecha_de_anio(self):
    return self.__fecha_de_anio
+
+def getCantDias(self):
+   return abs((self.__fecha_inicio - self.__fecha_fin).days)
