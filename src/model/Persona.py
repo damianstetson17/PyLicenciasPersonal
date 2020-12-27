@@ -12,6 +12,8 @@ class Persona():
     __nro_legajo = 0
     __nombre_apellido = ""
     __antiguedad = datetime.now()
+    __licencias = list()
+    __dias_correspondientes = list()
     __activo = True
 
 #setters
