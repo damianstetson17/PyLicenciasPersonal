@@ -15,10 +15,12 @@ class Licencia_controlador():
         return empleadoBuscado 
 
     def addPersona(self, newEmpleado):
-        #si no está repetido el nro de legajo
-        if(self.buscarPersona(newEmpleado.getNroLegajo())==None):
+        empleadoRepetido=None
+        empleadoRepetido=self.buscarPersona(newEmpleado.getNroLegajo())
+        # si no está repetido el nro de legajo
+        if(empleadoRepetido==None):
             self.__empleados.append(newEmpleado)
-            print("interté el empleado ",newEmpleado.getNombreApe())   
+            print("interté el empleado ", newEmpleado.getNombreApe())
         else:
             print("Ocurrio un error al intentar crear el empleado (Ya existe un empleado con el mísmo nro de legajo)")    
 
@@ -32,11 +34,12 @@ class Licencia_controlador():
 
     #dias correspondientes
     def generarDias_correspondiente(self, nroLegajoBuscado, diasCorrespNew):
-        empleado=self.buscarPersona(self, nroLegajoBuscado)
+        empleado=self.buscarPersona(nroLegajoBuscado)
         if(empleado!=None):
-            diasDuplicado = empleado.buscarDias_correspondiente(diasCorrespNew)
+            diasDuplicado = empleado.buscarDias_correspondiente(diasCorrespNew.getFecha())
             if(diasDuplicado==None):#si no esta repetido
                 empleado.addDias_correspondiente(diasCorrespNew)
+                print("inserté el día", diasCorrespNew.getFecha())
             else:
                 print("Ocurrio un error al intentar dar días al empleado (Ya existen esos días asociados al nro de legajo)")
         else:
@@ -63,14 +66,14 @@ class Licencia_controlador():
         return existe
 
     def generarLicencia(self, nroLegajoBuscado, newLicencia):
-        empleado=self.buscarPersona(self, nroLegajoBuscado)
+        empleado=self.buscarPersona(nroLegajoBuscado)
         if(empleado!=None):
             if(empleado.buscarLicencia(newLicencia.getFecha_ini(),newLicencia.getFecha_fin()) == None):#si la Lic no existe
             #verificar que existe los dias correspondientes, y puede pedir la cantidad de dias
-                if(self.varificarDias(self,empleado.getDias_correspondiente(), newLicencia.getFecha_de_anio(),newLicencia.cantDias())==True):
+                if(self.varificarDias(empleado.getDias_correspondiente(), newLicencia.getFecha_de_anio(),newLicencia.getCantDias())==True):
                     #restamos los dias a los dias correspondientes del año pedidos en la licencia
                     dias_mod=empleado.buscarDias_correspondiente(newLicencia.getFecha_de_anio())
-                    dias_mod.setDias(dias_mod.getDias()-newLicencia.cantDias())
+                    dias_mod.setDias(dias_mod.getDias()-newLicencia.getCantDias())
                     #agregamos la Licencia nueva a la persona
                     empleado.addLicencia(newLicencia)
             else:
