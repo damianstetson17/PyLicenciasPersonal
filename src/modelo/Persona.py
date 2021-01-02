@@ -9,10 +9,7 @@ class Persona():
         self.__antiguedad=antiNew
 
     #attributes
-    __nro_legajo = 0
-    __nombre_apellido = ""
-    __antiguedad = datetime.now()
-    __licencias = list()
+    __licencias = []
     __dias_correspondientes = list()
     __activo = True
 
@@ -66,7 +63,7 @@ class Persona():
     def buscarLicencia(self, fecha_ini_busc, fecha_fin_busc):
       lic_buscados=None
       for l in self.__licencias:
-         if((l.getFecha_ini()==fecha_ini_busc) and (l.getFecha_fin()==fecha_fin_busc())):
+         if((l.getFecha_ini()==fecha_ini_busc)):
             lic_buscados=l
             break
       return lic_buscados

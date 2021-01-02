@@ -42,7 +42,7 @@ class Licencia_controlador():
             diasDuplicado = empleado.buscarDias_correspondiente(diasCorrespNew.getFecha())
             if(diasDuplicado==None):#si no esta repetido
                 empleado.addDias_correspondiente(diasCorrespNew)
-                print("inserté el día", diasCorrespNew.getFecha())
+                print(f"inserté el día {diasCorrespNew.getFecha()} con {diasCorrespNew.getDias()} días disponibles al legajo nro {nroLegajoBuscado}")
             else:
                 print("Ocurrio un error al intentar dar días al empleado (Ya existen esos días asociados al nro de legajo)")
         else:
@@ -61,20 +61,14 @@ class Licencia_controlador():
     #Licencias
     def varificarDias(self, diasCorrespoBuscar,fecha_verificar,cantDiasSolicitados):
         existe = False
-        print("entré en verificar con la fecha a verif: ", fecha_verificar)
-        print("cantDiasSolicitados: ", cantDiasSolicitados)
-        print("tamaño de la lista de dias corrsp del empleado:", len(diasCorrespoBuscar))
         for d in diasCorrespoBuscar:
-            print("entre al foreach con la fecha del diascorresp: ", d.getFecha())
-            print("con la fecha a comparar de lic: ", fecha_verificar)
-            print("con el estado: ", d.getEstado())
             if((d.getFecha() == fecha_verificar) and (d.getEstado()==True)):#si coincide las fechas de la lic con un dias corresp y está activo
-                print("pase el if de q sea el mismo año de dia corresp y este en true")
-
                 if(d.getDias()>=cantDiasSolicitados):#si los dias pedidos no superan a los posibles
                     existe = True
-                    print("pasé el if de que hay dias pa usar")
-                break
+                    print("La licencia Verifica")
+                    break
+                else:
+                    print("se agotaron los dias")
         return existe
 
     def generarLicencia(self, nroLegajoBuscado, newLicencia):
@@ -83,17 +77,17 @@ class Licencia_controlador():
             licdupli=empleado.buscarLicencia(newLicencia.getFecha_ini(),newLicencia.getFecha_fin())
             if(licdupli is None):#si la Lic no existe
             #verificar que existe los dias correspondientes, y puede pedir la cantidad de dias
-                print("dif dias lic: ", newLicencia.getCantDias())
+                print("dif dias lic (osea cantidad de dias pedidos): ", newLicencia.getCantDias())
                 if(self.varificarDias(empleado.getDias_correspondiente(), newLicencia.getFecha_de_anio(),newLicencia.getCantDias())==True):
                     #restamos los dias a los dias correspondientes del año pedidos en la licencia
                     dias_mod=empleado.buscarDias_correspondiente(newLicencia.getFecha_de_anio())
                     dias_mod.setDias(dias_mod.getDias()-newLicencia.getCantDias())
-                    #agregamos la Licencia nueva a la persona
-                    empleado.addLicencia(newLicencia)
                     print(f"agregué la licencia {newLicencia.getFecha_ini()} al empleado {nroLegajoBuscado}")
-                    namisLic=list(empleado.getLicencias())
-                    print("Licencias:")
-                    print(len(namisLic))
+                    print(f"Los dias corresp ({dias_mod.getFecha()} quedaron con {dias_mod.getDias()} dias)")
+                    #agregamos la Licencia nueva a la persona
+                    empleado.getLicencias().append(newLicencia)
+                    if (dias_mod.getDias() == 0):
+                        dias_mod.setEstado(False)  # si se quedo en cero, apagamos esos días corresp
                 else:
                     print("Ocurrio un error al intentar generar licencia al empleado (No verifica)")
             else:
