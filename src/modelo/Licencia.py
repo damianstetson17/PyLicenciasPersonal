@@ -3,10 +3,11 @@ from datetime import datetime
 
 class Licencia():
     # construct
-    def __init__(self, fecha_ini, fecha_finNew, fecha_AnioNew):
+    def __init__(self, fecha_ini, fecha_finNew):
         self.__fecha_inicio = fecha_ini
         self.__fecha_fin = fecha_finNew
-        self.__fecha_de_anio = fecha_AnioNew
+
+        self.__fecha_de_anios = list()
 
     # setters
     def setFecha_ini(self, fecha_ini):
@@ -17,6 +18,9 @@ class Licencia():
 
     def setFecha_de_anio(self, fecha_anio):
         self.__fecha_de_anio = fecha_anio
+
+    def addFecha_de_anio(self, fecha_anioNew):
+        self.__fecha_de_anios.append(fecha_anioNew)
 
     # getters
     def getFecha_ini(self):
