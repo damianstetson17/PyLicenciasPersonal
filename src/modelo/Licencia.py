@@ -8,11 +8,6 @@ class Licencia():
         self.__fecha_fin = fecha_finNew
         self.__fecha_de_anio = fecha_AnioNew
 
-    # attributes
-    __fecha_inicio = datetime.now()
-    __fecha_fin = datetime.now()
-    __fecha_de_anio = datetime.now()
-
     # setters
     def setFecha_ini(self, fecha_ini):
         self.__fecha_inicio = fecha_ini
