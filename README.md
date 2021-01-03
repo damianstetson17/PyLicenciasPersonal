@@ -8,10 +8,11 @@ Sistema de gestión de licencias para un departamento de personal, en donde se l
 _
 
 ## Diagrama de Clases
-_Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [Véase src](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src)
+_Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [(Véase la carpeta raíz del código)](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src)
+
 ![diagrama_de_clases](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/classes.jpeg)_
 
-## ⚠️ ¡¡Atención!! ⚠️
+## ⚠️ Estado del proyecto ⚠️
 
 _El proyecto aún **se encuentra en desarrollo**._
 
