@@ -5,6 +5,7 @@ Sistema de gestión de licencias para un departamento de personal, en donde se l
 * Crear y borrar dias correspondientes por año.
 * Crear Licencias.
 * Llevar registro de licencias y días correspondientes de empleados.
+* Generar Excel con informe
 _
 
 ## Diagrama de Clases
@@ -15,6 +16,9 @@ Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por 
 ## ⚠️ Estado del proyecto ⚠️
 
 _El proyecto aún **se encuentra en desarrollo**._
+
+* GUI en desarrollo.
+* Generación de Excels en desarrollo.
 
 
 ## 🚀 ¿Cómo ejecutar? 🚀
