@@ -28,7 +28,7 @@ class LicenciaControlador():
             self.__empleados.append(newEmpleado)
             print(f"\t\t└->inserté el empleado {newEmpleado.getNombreApe()} con nro de legajo {newEmpleado.getNroLegajo()}\n")
         else:
-            print("Ocurrio un error al intentar crear el empleado (Ya existe un empleado con el mísmo nro de legajo)")
+            print(f"Ocurrio un error al intentar crear el empleado (Ya existe un empleado con el mísmo nro de legajo '{newEmpleado.getNroLegajo()}')")
 
 
     def delPersona(self, nroLegajoBuscado):
@@ -36,7 +36,7 @@ class LicenciaControlador():
         if(personaBorrar!=None):
             personaBorrar.setEstado(False)
         else:
-            print("Ocurrio un error al intentar dar de baja el empleado (No se encontró el empleado con el nro de legajo)")  
+            print(f"Ocurrio un error al intentar dar de baja el empleado (No se encontró el empleado con el nro de legajo '{nroLegajoBuscado}')")
 
 
     #dias correspondientes
@@ -47,12 +47,12 @@ class LicenciaControlador():
             diasDuplicado = empleado.buscarDias_correspondiente(diasCorrespNew.getFecha())
             if(diasDuplicado==None):#si no esta repetido
                 empleado.addDias_correspondiente(diasCorrespNew)
-                print(f"\t\t└->inserté el día correspondiente: {diasCorrespNew.getFecha()} con {diasCorrespNew.getDias()} "
-                      f"días disponibles al legajo nro {nroLegajoBuscado}\n")
+                print(f"\t\t└->inserté el día correspondiente del año '{diasCorrespNew.getFecha().strftime('%Y')}' con '{diasCorrespNew.getDias()}'"
+                      f" días disponibles al legajo nro '{nroLegajoBuscado}'\n")
             else:
-                print("Ocurrio un error al intentar dar días al empleado (Ya existen esos días asociados al nro de legajo)")
+                print(f"Ocurrio un error al intentar dar días al empleado (Ya existen días asociados al año '{diasCorrespNew.getFecha().strftime('%Y')}' al nro de legajo)")
         else:
-            print("Ocurrio un error al intentar dar días al empleado (No se encontró el empleado con el nro de legajo)")
+            print(f"Ocurrio un error al intentar dar días al empleado (No se encontró el empleado con el nro de legajo '{nroLegajoBuscado}')")
 
 
     def bajaDias_correspondiente(self, nroLegajoBuscado, diasCorrespBaja):
@@ -61,9 +61,9 @@ class LicenciaControlador():
             if(empleado.buscarDias_correspondiente(diasCorrespBaja) != None):
                 empleado.buscarDias_correspondiente(diasCorrespBaja).setEstado(False)
             else:
-                print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontraron los días")
+                print(f"Ocurrio un error al intentar dar de baja los días al empleado (No se encontraron los días del año '{diasCorrespBaja.getFecha().strftime('%Y')}'")
         else:
-            print("Ocurrio un error al intentar dar de baja los días al empleado (No se encontró el empleado con el nro de legajo)")
+            print(f"Ocurrio un error al intentar dar de baja los días al empleado (No se encontró el empleado con el nro de legajo '{nroLegajoBuscado}')")
 
     #Licencias
 
@@ -79,12 +79,12 @@ class LicenciaControlador():
                 if (totalDiasDisponibles >= diasPedidos):  # si dispongo de la cantidad usable de días
                     verifica = True
                     print(f"\t\t\t└->Existen suficientes días disponibles para generar la licencia solicitada "
-                          f"existen mayor o igual a {diasPedidos} días pedidos en la licencia ({totalDiasDisponibles} existentes)\n")
+                          f"existen mayor o igual a '{diasPedidos}' días pedidos en la licencia ('{totalDiasDisponibles}' existentes)\n")
                     break
         if(verifica==False):
             print(
                 f"\t\t\t└->No existen suficientes días disponibles para generar la licencia solicitada"
-                f" (La licencia {NewLicencia.getFecha_ini()} requiere {NewLicencia.getCantDias()} días)\n")
+                f" (La licencia '{NewLicencia.getFecha_ini()}' requiere '{NewLicencia.getCantDias()}' días)\n")
         return verifica
 
     # función que controla y llama a insertar la licencia
@@ -97,10 +97,10 @@ class LicenciaControlador():
                 if (self.verificarCantidadDiasLic(empleado.getDias_correspondiente(), newLicencia) == True):#si hay suficientes dias para la lic
 
                     empleado.getLicencias().append(self.insertarLicencia(nroLegajoBuscado, newLicencia))
-                    print(f"\t\t└->inserté la licencia {newLicencia.getFecha_ini()} al empleado {empleado.getNombreApe()}\n")
+                    print(f"\t\t└->inserté la licencia del '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}' al empleado '{empleado.getNombreApe()}'\n")
             else:
                 print(
-                    "Ocurrio un error al intentar generar licencia al empleado (Ya existe la licencia)")
+                    f"Ocurrio un error al intentar generar licencia al empleado (Ya existe una licencia con la fecha '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}')")
 
 
     def insertarLicencia(self, nroLegajoBuscado, newLicencia):
@@ -115,16 +115,17 @@ class LicenciaControlador():
                 dias.setDias(dias.getDias() - 1)
                 diasPedidosCorresp = diasPedidosCorresp + 1
             # cuando se terminan los de esos días se registra en la lista de lincencia de q años se tomaron los dias
-            diasTomados = DiasTomados(diasPedidosCorresp,dias.getFecha())#generamos los dias tomados
-            newLicencia.addDiasTomados(diasTomados)
-            print(f"\t\t└->se tomaron {diasTomados.getCantidadDiasTomados()} dias del año {diasTomados.getAnioDiasCorresp()}")
+            if(diasPedidosCorresp>0):
+                diasTomados = DiasTomados(diasPedidosCorresp,dias.getFecha())#generamos los dias tomados
+                newLicencia.addDiasTomados(diasTomados)
+                print(f"\t\t└->se tomaron '{diasTomados.getCantidadDiasTomados()}' dias del año '{diasTomados.getAnioDiasCorresp().strftime('%Y')}'")
             for dTomadosEnLic in newLicencia.getDiasTomados():
                 anio = dTomadosEnLic.getAnioDiasCorresp()
-                print(f"\t\t\t└->la licencia {newLicencia.getFecha_ini()} tiene {dTomadosEnLic.getCantidadDiasTomados()} días "
-                      f"del año {anio}")
+                print(f"\t\t\t└->la licencia '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}' tiene '{dTomadosEnLic.getCantidadDiasTomados()}' días "
+                      f"del año '{anio.strftime('%Y')}'")
             diasPedidosCorresp = 0
             if (diasPedidos == 0):
                 print(
-                    f"\t\t└->La licencia del día {newLicencia.getFecha_ini()} ya tomo todos los días necesarios ({newLicencia.getCantDias()})")
+                    f"\t\t└->La licencia del día '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}' ya tomo todos los días necesarios ('{newLicencia.getCantDias()}' días)")
                 break  # si ya se llego a los dias pedidos, salimos del bucle (más óptimo)
         return newLicencia

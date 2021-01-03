@@ -34,11 +34,11 @@ if (__name__ == "__main__"):
     # pedimos una licencia de 15 días (debería ocupar 5 del 2009)
     licJun = Licencia.Licencia(datetime.datetime(2021, 6, 1), datetime.datetime(2021, 5, 16))
     controlador.generarLicencia(1, licJun)
-    """""
+
     print("##################################INICIO LICENCIA REPETIDA (Main)##################################\n")
     licdupli = Licencia.Licencia(datetime.datetime(2021, 3, 1), datetime.datetime(2021, 3, 6))
     controlador.generarLicencia(1, licdupli)
-    """""
+
 
     #imprime los empleados y sus licencias asociadas
     for empleado in controlador.getListaEmpleados():
@@ -48,5 +48,5 @@ if (__name__ == "__main__"):
         print(f"Licencias de {empleado.getNombreApe()}:")
         lisLic = list(empleado.getLicencias())
         for lic in lisLic:
-            print(f"\ttiene la Licencia: {lic.getFecha_ini()} con {lic.getCantDias()} días")
+            print(f"\ttiene la Licencia del {lic.getFecha_ini().strftime('%d/%m/%Y')} con {lic.getCantDias()} días")
         print("\tTotal Licencias: ",len(lisLic))
