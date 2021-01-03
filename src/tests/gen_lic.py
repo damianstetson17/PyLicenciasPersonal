@@ -1,4 +1,7 @@
-"""""class ControladorLic:
+"""""
+TESTING THINGS, IGNORE ALL (OR WATCHES FOR CURIOSITY)
+
+class ControladorLic:
         #función que verifica si es posible los días que se quiere tomar el empleado
         def verificarCantidadDiasLic(self, diasCorrespTotalesEmple, NewLicencia):
             verifica=False
@@ -38,3 +41,5 @@
                 if(diasPedidos==0):
                     print(f"La licencia del día {newLicencia.getFecha_ini()} ya tomo todos los días necesarios ({newLicencia.getCantDias()})")
                     break#si ya se llego a los dias pedidos, salimos del bucle (más óptimo)"""""
+
+        def(self,)

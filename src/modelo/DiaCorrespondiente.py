@@ -1,7 +1,7 @@
 from datetime import datetime, date
 
 
-class Dia_correspondiente():
+class DiaCorrespondiente():
     # construct
     def __init__(self, fecha_anioNew, cantDias, estado):
 

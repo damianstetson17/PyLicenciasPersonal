@@ -1,7 +1,7 @@
 from src.modelo import Licencia
 
 
-class Licencia_controlador():
+class LicenciaControlador():
     __empleados = list()
 
 
