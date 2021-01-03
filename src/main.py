@@ -39,14 +39,22 @@ if (__name__ == "__main__"):
     licdupli = Licencia.Licencia(datetime.datetime(2021, 3, 1), datetime.datetime(2021, 3, 6))
     controlador.generarLicencia(1, licdupli)
 
-
+    print("##################################RESULTADOS FINALES (Main)##################################\n")
     #imprime los empleados y sus licencias asociadas
     for empleado in controlador.getListaEmpleados():
         print(
-            f"\nCantidad de licencias generadas al empleado '{empleado.getNombreApe()}' nro legajo: "
+            f"Cantidad de licencias generadas al empleado '{empleado.getNombreApe()}' nro legajo: "
             f"'{empleado.getNroLegajo()}'")
         print(f"Licencias de {empleado.getNombreApe()}:")
         lisLic = list(empleado.getLicencias())
         for lic in lisLic:
-            print(f"\ttiene la Licencia del {lic.getFecha_ini().strftime('%d/%m/%Y')} con {lic.getCantDias()} días")
-        print("\tTotal Licencias: ",len(lisLic))
+            print(f"\t╚»tiene la Licencia del {lic.getFecha_ini().strftime('%d/%m/%Y')} con {lic.getCantDias()} días")
+        print(f"\tTotal Licencias: {len(lisLic)} \n")
+
+    #imprimir
+    for empleado in controlador.getListaEmpleados():
+        print(f"Cantidad de días correspondientes del empleado '{empleado.getNombreApe()}'"
+              f" nro de legajo '{empleado.getNroLegajo()}'")
+        for dias in empleado.getDias_correspondiente():
+            print(f"\t╚»Año '{dias.getFecha().strftime('%Y')}' tiene '{dias.getDias()}' con el estado de '{dias.getEstado()}'")
+        print("\n")
