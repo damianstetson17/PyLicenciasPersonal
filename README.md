@@ -19,7 +19,7 @@ El proyecto aún se encuentra **en desarrollo**.
 ### Hecho ✅:
 * Modelo completo.
 * Logger en consola de los llamados a los módulos y mensajes de errores.
-![erorrs](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
+* * ![errors and msj](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
 
 ### En desarrollo 🛠️:
 * No contabilizar *días feriados* ni *fines de semana* a la hora de contabilizar los días de licencia
