@@ -31,10 +31,10 @@ El proyecto aún se encuentra **en desarrollo**.
 ## 🚀 ¿Cómo ejecutar? 🚀
 
 Para ejecutar correctamente simplemente compilar el archivo [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py).
-* Tener [Pyhton](https://www.python.org/) instalado.
+* Tener [Python](https://www.python.org/) instalado.
 * Abrir un Terminal _(En windows apretar **Win + r** y tipear **"cmd"**)_.
 * Posicionarse mediante el comando **"cd"** sobre la [carpeta raíz del código](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src).
-* Ejecutar la sentencia **python [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)**.
+* Ejecutar la sentencia **"python [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)"**.
 
 ### ¿Que me encontraré al compilar el archivo [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)?
 Este contiene la instanciación de dos empleados _("Namis" y "Angy")_ quienes poseen sus números de legajo _("Namis" posee el número de legajo "1", "Angy" el número de legajo "2")_ seguido a estos se instanciarán dos días correspondientes al empleado "Namis", le corresponderán 10 días del año 2021 y 25 días del año 2009. Se solicitará generar dos Licencia, una de 15 días _(desde 1/03/21 al 16/03/21)_ y otra de 5 días _(desde 1/05/21 al 6/05/21)_.
