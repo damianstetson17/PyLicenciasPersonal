@@ -36,3 +36,5 @@ Además se solicita una licencia extra, luego de haberse generado las dos anteri
 El mensaje mostrado por consola, de esta fracción del código al compilarse será:
 
 ![msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
+
+_Todas estas imágenes y documentación se encuentran sujetas a cambios, que serán publicados en tiempo y forma._
