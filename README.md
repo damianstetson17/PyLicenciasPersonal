@@ -40,7 +40,7 @@ Para ejecutar correctamente simplemente compilar el archivo [main.py](https://gi
 Este contiene la instanciación de dos empleados _("Namis" y "Angy")_ quienes poseen sus números de legajo _("Namis" posee el número de legajo "1", "Angy" el número de legajo "2")_ seguido a estos se instanciarán dos días correspondientes al empleado "Namis", le corresponderán 10 días del año 2021 y 25 días del año 2009. Se solicitará generar dos Licencia, una de 15 días _(desde 1/03/21 al 16/03/21)_ y otra de 5 días _(desde 1/05/21 al 6/05/21)_.
 Además se solicita una licencia extra, luego de haberse generado las dos anteriores que solicita 16 días al empleado "Namis", el cual no posee _(Ya que utilizó todos sus días disponibles en las dos licencias anteriores)_ a fin de generar una situación de error y poner el sistema a pruebas, el cual no generará dicha licencia. Ídem de esto es la generación de una licencia _"duplicada"_ ya que cuenta con en el mísmo día de inicio que una de las ya generadas _(esto generar una situación de error, un mismo empleado no debería poder solicitar dos licencias el mísmo día, por lo que el sistema tampoco la generará)_.
 
-El mensaje mostrado por consola, de esta fracción del código al compilarse será:
+Una fracción del mensaje mostrado por consola _(De la generación de dichas licencias mencionadas anteriormente)_, de esta fracción del código al compilarse será:
 
 ![msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
 
