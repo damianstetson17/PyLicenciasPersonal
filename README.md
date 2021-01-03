@@ -35,4 +35,4 @@ Además se agrega una licencia solicitada luego de estas que pide 16 días al em
 
 Mensaje mostrado por consola
 
-**![msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
+** ![msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
