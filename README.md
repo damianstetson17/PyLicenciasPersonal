@@ -6,7 +6,6 @@ Sistema de gestión de licencias para un departamento de personal, en donde se l
 * Crear Licencias.
 * Llevar registro de licencias y días correspondientes de empleados.
 * Generar Excel con informe
-_
 
 ## Diagrama de Clases
 Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [(Véase la carpeta raíz del código)](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src)
@@ -17,6 +16,7 @@ Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por 
 
 _El proyecto aún **se encuentra en desarrollo**._
 
+* Modelo completo en fase de pruebas (Pruebas unitarias completadas)
 * GUI en desarrollo.
 * Generación de Excels en desarrollo.
 
