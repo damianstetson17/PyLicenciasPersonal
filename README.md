@@ -1,5 +1,5 @@
 # 👥 PyLicenciasPersonal 👥
-_Sistema de gestión de licencias para un departamento de personal, en donde se lleva registro y control de licencias de empleados, en el podrás:
+Sistema de gestión de licencias para un departamento de personal, en donde se lleva registro y control de licencias de empleados, en el podrás:
 
 *Crear y borrar empleados basados en un identificador denominado "número de legajo".
 *Crear y borrar dias correspondientes por año.
@@ -9,8 +9,8 @@ _
 
 ⚠️ ¡¡Atención!! ⚠️
 
-_El proyecto aún **se encuentra en desarrollo**, iré actualizando diariamente._
+_El proyecto aún **se encuentra en desarrollo**._
 
 ## Comenzando 🚀
 
-_Para ejecutar correctamente simplemente ejecutar [Licencias/src/main.py]._
+_Para ejecutar correctamente simplemente ejecutar [main.py]._
