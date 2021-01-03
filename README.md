@@ -16,9 +16,13 @@ Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por 
 
 _El proyecto aún **se encuentra en desarrollo**._
 
+### Hecho ✅:
 * Modelo completo en fase de pruebas (Pruebas unitarias completadas)
-* GUI en desarrollo.
-* Generación de Excels en desarrollo.
+### En desarrollo 🛠️:
+* No contabilizar *días feriados* ni *fines de semana* a la hora de contabilizar los días de licencia
+* Caducidad de días correspondientes no utilizados en *X* cantidad de tiempo en desarrollo.
+* Graphic user interface.
+* Generación de Excels.
 
 
 ## 🚀 ¿Cómo ejecutar? 🚀
