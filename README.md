@@ -13,4 +13,4 @@ _El proyecto aún **se encuentra en desarrollo**._
 
 ## Comenzando 🚀
 
-_Para ejecutar correctamente simplemente ejecutar [main.py]._
+_Para ejecutar correctamente simplemente ejecutar [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)._
