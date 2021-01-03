@@ -22,7 +22,7 @@ El proyecto aún se encuentra **en desarrollo**.
 ![errors and msj](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
 
 ### En desarrollo 🛠️:
-* No contabilizar *días feriados* ni *fines de semana* a la hora de contabilizar los días de licencia
+* No contabilizar **días feriados** _(Estos cargables por el usuario)_ ni **fines de semana** a la hora de contabilizar los días de licencia
 * Caducidad de días correspondientes no utilizados en *X* cantidad de tiempo en desarrollo.
 * Graphic user interface.
 * Generación de Excels.
