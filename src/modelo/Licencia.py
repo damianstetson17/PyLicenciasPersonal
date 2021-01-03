@@ -3,11 +3,11 @@ from datetime import datetime
 
 class Licencia():
     # construct
-    def __init__(self, fecha_ini, fecha_finNew):
+    def __init__(self, fecha_ini, fecha_fin):
         self.__fecha_inicio = fecha_ini
-        self.__fecha_fin = fecha_finNew
+        self.__fecha_fin = fecha_fin
 
-        self.__fecha_de_anios = list()
+        self.__diasTomados = list()
 
     # setters
     def setFecha_ini(self, fecha_ini):
@@ -16,11 +16,11 @@ class Licencia():
     def setFecha_fin(self, fecha_finNew):
         self.__fecha_fin = fecha_finNew
 
-    def setFecha_de_anio(self, fecha_anio):
-        self.__fecha_de_anio = fecha_anio
+    def setDiasTomados(self, diasTomadosNewList):
+        self.__diasTomados = diasTomadosNewList
 
-    def addFecha_de_anio(self, fecha_anioNew):
-        self.__fecha_de_anios.append(fecha_anioNew)
+    def addDiasTomados(self, diasTomadosNew):
+        self.__diasTomados.append(diasTomadosNew)
 
     # getters
     def getFecha_ini(self):
@@ -30,7 +30,7 @@ class Licencia():
         return self.__fecha_fin
 
     def getFecha_de_anio(self):
-        return self.__fecha_de_anio
+        return self.__diasTomados
 
     def getCantDias(self):
         return abs((self.__fecha_inicio - self.__fecha_fin).days)

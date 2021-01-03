@@ -1,4 +1,5 @@
 from src.modelo import Licencia
+from src.modelo.DiasTomados import DiasTomados
 
 
 class LicenciaControlador():
@@ -101,8 +102,9 @@ class LicenciaControlador():
                 dias.setDias(dias.getDias() - 1)
                 diasPedidosCorresp = diasPedidosCorresp + 1
             # cuando se terminan los de esos días se registra en la lista de lincencia de q años se tomaron los dias
-            newLicencia.addFecha_de_anio(dias)
-            print(f"se tomaron {diasPedidosCorresp} dias del año {dias.getFecha()}")
+            diasTomados = DiasTomados(diasPedidosCorresp,dias.getFecha())#generamos los dias tomados
+            newLicencia.addDiasTomados(diasTomados)
+            print(f"se tomaron {diasTomados.getCantidadDiasTomados()} dias del año {diasTomados.getAnioDiasCorresp()}")
             diasPedidosCorresp = 0
             if (diasPedidos == 0):
                 print(
