@@ -27,11 +27,11 @@ El proyecto aún se encuentra **en desarrollo**.
 * Graphic user interface.
 * Generación de Excels.
 
-## Construido con 🔧:
+## 🔧 Construido con:
 
-* PyCharm
-* SQlite
-* Lucidchart
+* [PyCharm](https://www.jetbrains.com/es-es/pycharm/)
+* [SQlite](https://www.sqlite.org/index.html)
+* [Lucidchart](www.lucidchart.com)
 
 
 ## 🚀 ¿Cómo ejecutar? 🚀
