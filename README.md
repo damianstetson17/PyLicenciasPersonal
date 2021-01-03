@@ -27,6 +27,9 @@ El proyecto aún se encuentra **en desarrollo**.
 * Graphic user interface.
 * Generación de Excels.
 
+## Construido con 🔧
+* PyCharm
+* SQlite
 
 ## 🚀 ¿Cómo ejecutar? 🚀
 
