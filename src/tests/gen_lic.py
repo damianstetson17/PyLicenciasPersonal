@@ -41,5 +41,3 @@ class ControladorLic:
                 if(diasPedidos==0):
                     print(f"La licencia del día {newLicencia.getFecha_ini()} ya tomo todos los días necesarios ({newLicencia.getCantDias()})")
                     break#si ya se llego a los dias pedidos, salimos del bucle (más óptimo)"""""
-
-        def(self,)

@@ -9,7 +9,6 @@ class DiaCorrespondiente():
         self.__dias = cantDias
         self.__activo = estado
 
-    # attributes
     __fecha_anio = datetime.now()
     __dias = 0
     __activo = True

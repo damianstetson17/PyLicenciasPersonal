@@ -6,7 +6,6 @@ class Licencia():
     def __init__(self, fecha_ini, fecha_fin):
         self.__fecha_inicio = fecha_ini
         self.__fecha_fin = fecha_fin
-
         self.__diasTomados = list()
 
     # setters
@@ -29,7 +28,7 @@ class Licencia():
     def getFecha_fin(self):
         return self.__fecha_fin
 
-    def getFecha_de_anio(self):
+    def getDiasTomados(self):
         return self.__diasTomados
 
     def getCantDias(self):

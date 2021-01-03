@@ -7,11 +7,9 @@ class Persona():
         self.__nro_legajo=nroAgregar
         self.__nombre_apellido=nombreApe
         self.__antiguedad=antiNew
-
-    #attributes
-    __licencias = []
-    __dias_correspondientes = list()
-    __activo = True
+        self.__licencias = []
+        self.__dias_correspondientes = list()
+        self.__activo = True
 
    #setters
     def setNro_legajo(self, nroAgregar):
@@ -28,9 +26,6 @@ class Persona():
 
     def addDias_correspondiente(self, diasNew):
       self.__dias_correspondientes.append(diasNew)
-
-    def addLicencia(self, licenciaNew):
-      self.__dias_correspondientes.append(licenciaNew)
 
    #getters
     def getNroLegajo(self):
@@ -67,3 +62,4 @@ class Persona():
             lic_buscados=l
             break
       return lic_buscados
+
