@@ -14,10 +14,13 @@ Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por 
 
 ## ⚠️ Estado del proyecto ⚠️
 
-_El proyecto aún **se encuentra en desarrollo**._
+El proyecto aún se encuentra **en desarrollo**.
 
 ### Hecho ✅:
-* Modelo completo en fase de pruebas (Pruebas unitarias completadas)
+* Modelo completo.
+* Logger en consola de los llamados a los módulos y mensajes de errores.
+![erorrs](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
+
 ### En desarrollo 🛠️:
 * No contabilizar *días feriados* ni *fines de semana* a la hora de contabilizar los días de licencia
 * Caducidad de días correspondientes no utilizados en *X* cantidad de tiempo en desarrollo.
