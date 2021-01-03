@@ -30,4 +30,9 @@ El proyecto aún se encuentra **en desarrollo**.
 
 ## 🚀 ¿Cómo ejecutar? 🚀
 
-_Para ejecutar correctamente simplemente ejecutar [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)._
+_Para ejecutar correctamente simplemente ejecutar el archivo [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py) este contiene la instanciación de dos empleados ("Namis" y "Angy") quienes poseen sus números de legajo ("Namis" posee el número de legajo "1", "Angy" el número de legajo "2") seguido a estos se instanciarán dos días correspondientes al empleado "Namis", le corresponderán 10 días del año 2021 y 25 días del año 2009. Se solicitará generar dos Licencia, una de 15 días (desde 1/03/21 al 16/03/21) y otra de 5 días (desde 1/05/21 al 6/05/21).
+Además se agrega una licencia solicitada luego de estas que pide 16 días al empleado "Namis", el cual no posee (Ya que utilizó todos sus días disponibles en las dos licencias anteriores) para generar situación de error y poner el sistema a pruebas, el cual no generará dicha licencia. Ídem de esto es la generación de una licencia en el mísmo día de inicio que una de las ya generadas (esto generar una situación de error, por lo que el sistema tampoco la generará)_
+
+Mensaje mostrado por consola
+
+**[msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
