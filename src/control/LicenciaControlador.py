@@ -102,14 +102,14 @@ class LicenciaControlador():
             if (licdupli is None):  # si la Lic no existe
                 if (self.verificarCantidadDiasLic(empleado.getDias_correspondiente(), newLicencia) == True):#si hay suficientes dias para la lic
 
-                    empleado.getLicencias().append(self.insertarLicencia(nroLegajoBuscado, newLicencia))
+                    empleado.getLicencias().append(self.insertarDiasALicencia(nroLegajoBuscado, newLicencia))
                     print(f"\t\t└>Se insertó la licencia del '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}' al empleado '{empleado.getNombreApe()}'\n")
             else:
                 print(f"\t\t└>Ocurrio un error al intentar generar licencia al empleado"
                       f" (Ya existe una licencia con la fecha '{newLicencia.getFecha_ini().strftime('%d/%m/%Y')}')\n")
 
 
-    def insertarLicencia(self, nroLegajoBuscado, newLicencia):
+    def insertarDiasALicencia(self, nroLegajoBuscado, newLicencia):
         print("\t└->LLAMADO AL MÓDULO INSERTAR LICENCIA")
         empleado = self.buscarPersona(nroLegajoBuscado)
         diasPedidos = newLicencia.getCantDias()
