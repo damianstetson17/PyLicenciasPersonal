@@ -117,19 +117,20 @@ class LicenciaControlador():
         print("\t\t└->LLAMADO AL MÓDULO VERIFICAR CANT DIAS LIC ")
         verifica = False
         totalDiasDisponibles = 0
-        diasPedidos = NewLicencia.getDifDias()
+        diasPedidos = NewLicencia.getCantDiasPedidos()
         for d in diasCorrespTotalesEmple:
             if (d.getEstado() == True):  # si son ocupables
                 totalDiasDisponibles += d.getDias()
                 if (totalDiasDisponibles >= diasPedidos):  # si dispongo de la cantidad usable de días
                     verifica = True
-                    print(f"\t\t\t└>Existen suficientes días disponibles para generar la licencia solicitada "
+                    print(f"\t\t\t└>Existen suficientes días disponibles para generar la licencia solicitada"
+                          f" ('{NewLicencia.getFechaIni().strftime('%d/%m/%Y')}')\n\t\t\t"
                           f"existen mayor o igual a '{diasPedidos}' días pedidos en la licencia"
                           f" ('{totalDiasDisponibles}' existentes)\n")
                     break
         if (verifica == False):
             print(f"\t\t\t└>No existen suficientes días disponibles para generar la licencia solicitada"
-                  f" (La licencia '{NewLicencia.getFechaIni().strftime('%d/%m/%Y')}' requiere '{NewLicencia.getDifDias()}' días)\n")
+                  f" (La licencia '{NewLicencia.getFechaIni().strftime('%d/%m/%Y')}' requiere '{NewLicencia.getCantDiasPedidos()}' días)\n")
         return verifica
 
     # función que controla y llama a insertar la licencia
@@ -167,7 +168,8 @@ class LicenciaControlador():
                 diasTomados = DiasTomados(diasPedidosCorresp, dias.getFecha())  # generamos los dias tomados
                 newLicencia.addDiasTomados(diasTomados)
                 print(
-                    f"\t\t└>Se tomaron '{diasTomados.getCantidadDiasTomados()}' dias del año '{diasTomados.getAnioDiasCorresp().strftime('%Y')}'")
+                    f"\t\t└>Se tomaron '{diasTomados.getCantidadDiasTomados()}'"
+                    f" dias del año '{diasTomados.getAnioDiasCorresp().strftime('%Y')}'")
             for dTomadosEnLic in newLicencia.getDiasTomados():
                 anio = dTomadosEnLic.getAnioDiasCorresp()
                 print(f"\t\t\t└>La licencia '{newLicencia.getFechaIni().strftime('%d/%m/%Y')}' tiene"
@@ -177,7 +179,7 @@ class LicenciaControlador():
             if (cantDiasPedidos == 0):
                 print(
                     f"\t\t└>La licencia del día '{newLicencia.getFechaIni().strftime('%d/%m/%Y')}'"
-                    f" ya tomo todos los días necesarios ('{newLicencia.getDifDias()}' días)")
+                    f" ya tomo todos los días necesarios ('{newLicencia.getCantDiasPedidos()}' días)")
                 break  # si ya se llego a los dias pedidos, salimos del bucle (más óptimo)
         return newLicencia
 
@@ -190,25 +192,22 @@ class LicenciaControlador():
             if (newFechaFin.weekday() >= 5):
                 # si es sábado o domingo, incrementamos otro día, pero no restamos al contador
                 newFechaFin = newFechaFin + datetime.timedelta(days=1)
-
             # el empleado tampoco puede volver un feriado
             else:
                 if (newFechaFin in self.__feriados):
                     # si es un día feriado, hay que incrementar el día, pero no el contador, un empleado no puede volver un feriado
                     newFechaFin = newFechaFin + datetime.timedelta(days=1)
-
                 else:
                     # si es un dia útil sumamos un día a la fecha inicial, y restamos uno a los que se piden de licencia
                     newFechaFin = newFechaFin + datetime.timedelta(days=1)
                     cantDiasPedidosAuxCont = cantDiasPedidosAuxCont - 1
-
         # guardamos la nueva fecha en la licencia
         newLicencia.setFechaFin(newFechaFin)
         print(f"\t\t└>Retorno la licencia (Del '{newLicencia.getFechaIni().strftime('%d/%m/%Y')}') "
               f"con su nueva fecha final calculada: '{newLicencia.getFechaFin().strftime('%d/%m/%Y')}'")
         return newLicencia
 
-    # Pasado @CantAnioVencimientoSem -en semanas- cantidad de años en donde existen días correspondinetes que
+    # Pasado @CantAnioVencimientoSem -en semanas- cantidad de años en donde existen días correspondientes que
     # jamás se utilizaron dejan de ser utilizables
     def actualizarVencimientosDiasCorresp(self, empleadoAct, CantAnioVencimientoSem):
         print("\t└->LLAMADO AL MÓDULO VENCIMIENTOS DE DÍAS CORRESPONDIENTES")
@@ -219,7 +218,7 @@ class LicenciaControlador():
                 if (not (dias in diasCorrespList)):  # si ese días corresp no se ocuparon en esa licencia, es "vencible"
                     noUsados = False
                     print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
-                          f" fueron ocupados al menos en una licencia ('{licencia.getFechaIni()}') por lo cual, "
+                          f" fueron ocupados al menos en una licencia ('{licencia.getFechaIni().strftime('%d/%m/%Y')}') por lo cual, "
                           f"no pueden ser dados de baja")
                     break;
             if (noUsados == True):  # si no se ocupo ese día en ninguna licencia
@@ -235,3 +234,13 @@ class LicenciaControlador():
                     print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
                           f" no fueron dados de baja ('{dias.getFecha().strftime('%Y')}' es mayor"
                           f" o igual al año actual ('{datetime.datetime.now().strftime('%Y')}')")
+
+    #si se desea forzar la generación de una licencia con la cantidad de días de ciertos días correspondientes
+    def agregarDiasCorrespALicencia(self,newLicencia,diasTomados):
+        print("\t└->LLAMADO AL MÓDULO AGREGAR DÍAS CORRESPONDIENTES A LICENCIA")
+        if(diasTomados.getAnioDiasCorresp().getDias()-diasTomados.getCantidadDiasTomados() >= 0):
+            diasTomados.getAnioDiasCorresp().setDias((diasTomados.getAnioDiasCorresp().getDias()-diasTomados.getCantidadDiasTomados()))
+        else:
+            print(f"\t\t└>Ocurrio un error al intentar insertar los DiasTomados ('{diasTomados.getCantidadDiasTomados()}' "
+                  f"días del año '{diasTomados.getAnioDiasCorresp().getFecha().strftime('%Y')}') a la licencia"
+                  f" '{newLicencia.getFechaIni().strftime('%d/%m/%Y')}' no le quedan días disponibles para ocupar")
