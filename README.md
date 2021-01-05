@@ -32,7 +32,7 @@ El proyecto aún se encuentra **en desarrollo**.
 * Carga de datos mediante tablas Excel.
 
 ## 🔧 Construido con:
-*[Python 3.8.7](https://www.python.org/downloads/release/python-387/)
+* [Python 3.8.7](https://www.python.org/downloads/release/python-387/)
 * [PyQt5](https://pypi.org/project/PyQt5/)
 * [PyCharm](https://www.jetbrains.com/es-es/pycharm/)
 * [SQlite](https://www.sqlite.org/index.html)
