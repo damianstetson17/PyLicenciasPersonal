@@ -17,11 +17,18 @@ if (__name__ == "__main__"):
 
     print("##################################INICIO DIAS CORRESPONDIENTES (Main)##################################\n")
     # generamos 10 días del año 2021 actual al empleado nro legajo 1
-    diasNew = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2021, 3, 1), 10, True)
+    diasNew = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2021, 3, 1), 20, True)
     controlador.generarDias_correspondiente(1, diasNew)
     # generamos 25 días del año 2009 actual al empleado nro legajo 1
-    diasNew2 = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2009, 2, 1), 25, True)
+    diasNew2 = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2009, 2, 1), 5, True)
     controlador.generarDias_correspondiente(1, diasNew2)
+
+
+    print("##################################INICIO VENCIMIENTO DÍAS CORRESP (Main)##################################\n")
+    # el orden de llamada al módulo cambiará que días se vencerán dependiendo si se han creado licencias antes
+    #los días correspondientes del empleado que no hayan sido ocupados al menos en una licencia,
+    # y sean viejos (menores al año especificado -normalmente, el año actual-) serán dados de baja
+    controlador.actualizarVencimientosDiasCorresp(empleado1, 52)
 
     print("##################################INICIO CREAR FERIADOS (Main)##################################\n")
     feriado1=datetime.datetime(2021, 3, 3)
@@ -38,7 +45,7 @@ if (__name__ == "__main__"):
     print("##################################INICIO LICENCIA CORRECTA (Main)##################################\n")
     licNew = Licencia.Licencia(datetime.datetime(2021, 3, 1), 15)
     controlador.generarLicencia(1, licNew)
-    """""
+
     # pedimos una licencia de 5 días (debería ocupar 5 del 2009)
     licMay = Licencia.Licencia(datetime.datetime(2021, 5, 1),5)
     controlador.generarLicencia(1,licMay)
@@ -50,7 +57,7 @@ if (__name__ == "__main__"):
     print("##################################INICIO LICENCIA REPETIDA (Main)##################################\n")
     licdupli = Licencia.Licencia(datetime.datetime(2021, 3, 1), 5)
     controlador.generarLicencia(1, licdupli)
-    """""
+
     print("##################################RESULTADOS FINALES (Main)##################################\n")
     #imprime los días feriados existente
     print("Feriados existentes:")

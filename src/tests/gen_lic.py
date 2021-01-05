@@ -60,3 +60,31 @@ class ControladorLic:
             #guardamos la nueva fecha en la licencia
             newLicencia.setFechaFin(newFechaFin)
             return newLicencia"""""
+
+"""
+        #Pasado @AnioVencimiento cantidad de años en donde existen días correspondinetes que
+            # jamás se utilizaron dejan de ser utilizables
+            def actualizarVencimientosDiasCorresp(self, empleadoAct, AnioVencimiento):
+                print("\t└->LLAMADO AL MÓDULO VENCIMIENTOS DE DÍAS CORRESPONDIENTES")
+                for dias in empleadoAct.getDiasCorrespondienteList():
+                    noUsados=True
+                    for licencia in empleadoAct.getLicencias():
+                        diasCorrespList = licencia.getDiasTomados()
+                        if(not(dias in diasCorrespList)): #si ese días corresp no se ocuparon en esa licencia, es "vencible"
+                            noUsados=False
+                            print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
+                                  f" fueron ocupados al menos en una licencia ('{licencia.getFechaIni()}') por lo cual, "
+                                  f"no pueden ser dados de baja")
+                            break;
+                    if(noUsados == True):#si no se ocupo ese día en ninguna licencia
+                        print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
+                              f" no fueron ocupados al menos en una licencia")
+                        if(dias.getFecha().year<AnioVencimiento):
+                            dias.setEstado(False)
+                            print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
+                                  f" fueron dados de baja (Su nuevo estado es '{dias.getEstado()}')")
+                        else:
+                            print(f"\t\t└>Los días correspondiente '{dias.getFecha().strftime('%Y')}'"
+                                  f" no fueron dados de baja ('{dias.getFecha().strftime('%Y')}' es mayor"
+                                  f" o igual a '{AnioVencimiento}' años de vencimiento)")
+"""
