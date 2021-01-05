@@ -26,6 +26,8 @@ class Persona():
 
     def addDiasCorrespondiente(self, diasNew):
       self.__dias_correspondientes.append(diasNew)
+      #ordenamos la lista desde el año más viejo
+      self.__dias_correspondientes=sorted(self.__dias_correspondientes, key=lambda x: x.getFecha())
 
    #getters
     def getNroLegajo(self):
