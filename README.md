@@ -3,12 +3,13 @@ Sistema de gestión de licencias para un departamento de personal, en donde se l
 
 * Crear y borrar empleados basados en un identificador denominado "número de legajo".
 * Crear y borrar dias correspondientes por año.
-* Crear Licencias.
+* Crear Licencias con controles de fines de semana y/o feriados.
 * Llevar registro de licencias y días correspondientes de empleados.
-* Generar Excel con informe
+* Generar Excel con informe.
+* Carga de datos mediante tablas de Excel.
 
 ## Diagrama de Clases
-Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [(Véase la carpeta raíz del código)](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src).
+Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [(Véase carpeta raíz.)](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src).
 
 ![diagrama_de_clases](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/classes.png.png)
 
@@ -24,11 +25,14 @@ El proyecto aún se encuentra **en desarrollo**.
 ![errors and msj](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
 
 ### En desarrollo 🛠️:
-* Conexión con SQLite
+* Conexión con SQLite.
 * Graphic user interface.
+* Implementar Loggers.
 * Generación de Excels.
+* Carga de datos mediante tablas Excel.
 
 ## 🔧 Construido con:
+*[Python 3.8.7](https://www.python.org/downloads/release/python-387/)
 * [PyQt5](https://pypi.org/project/PyQt5/)
 * [PyCharm](https://www.jetbrains.com/es-es/pycharm/)
 * [SQlite](https://www.sqlite.org/index.html)
@@ -44,10 +48,10 @@ Para ejecutar correctamente simplemente compilar el archivo [main.py](https://gi
 * Ejecutar la sentencia "```python main.py```".
 
 ### ¿Que me encontraré al compilar el archivo [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py)?
-Este contiene la instanciación de dos empleados _("Namis" y "Angy")_ quienes poseen sus números de legajo _("Namis" posee el número de legajo "1", "Angy" el número de legajo "2")_ seguido a estos se instanciarán dos días correspondientes al empleado "Namis", le corresponderán 10 días del año 2021 y 25 días del año 2009. Se solicitará generar dos Licencia, una de 15 días _(desde 1/03/21 al 16/03/21)_ y otra de 5 días _(desde 1/05/21 al 6/05/21)_.
-Además se solicita una licencia extra, luego de haberse generado las dos anteriores que solicita 16 días al empleado "Namis", el cual no posee _(Ya que utilizó todos sus días disponibles en las dos licencias anteriores)_ a fin de generar una situación de error y poner el sistema a pruebas, el cual no generará dicha licencia. Ídem de esto es la generación de una licencia _"duplicada"_ ya que cuenta con en el mísmo día de inicio que una de las ya generadas _(esto generar una situación de error, un mismo empleado no debería poder solicitar dos licencias el mísmo día, por lo que el sistema tampoco la generará)_.
+Que no te maree la cantidad de contenido dentro del fichero [main.py](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/src/main.py), simplemente
+crea instancias de los objetos del modelo, comprueba objetos duplicados, vencimientos de días correspondientes, licencias repetidas, licencias no posibles de tomar, entre otros, encima de cada llamado a funciones se encuentra documentado la finalidad del mísmo.
 
-Una fracción del mensaje mostrado por consola _(De la generación de dichas licencias mencionadas anteriormente)_, de esta fracción del código al compilarse será:
+Una fracción del mensaje mostrado por consola _(De la generación de licencias)_, al compilarse será:
 
 ![msj_lic](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_gen_lic.png)
 
