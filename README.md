@@ -10,7 +10,7 @@ Sistema de gestión de licencias para un departamento de personal, en donde se l
 ## Diagrama de Clases
 Se decidió realizar el proyecto en base al paradigmas orientado a objetos, por lo tanto, se adjunta el diagrama de clases asociado a la resolución del escenario, esto también afectó la manera de organización de los módulos y clases del proyecto [(Véase la carpeta raíz del código)](https://github.com/damianstetson17/PyLicenciasPersonal/tree/main/src).
 
-![diagrama_de_clases](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/classes.jpeg)
+![diagrama_de_clases](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/classes.png.png)
 
 ## ⚠️ Estado del proyecto ⚠️
 
@@ -18,17 +18,18 @@ El proyecto aún se encuentra **en desarrollo**.
 
 ### Hecho ✅:
 * Modelo completo.
-* Logger en consola de los llamados a los módulos y mensajes de errores.
+* No contabilizar **días feriados** _(Estos cargables por el usuario)_ ni **fines de semana** a la hora de contabilizar los días de licencia
+* Caducidad de días correspondientes no utilizados en *X* cantidad de tiempo.
+* "Logger" en consola de los llamados a los módulos y mensajes de errores.
 ![errors and msj](https://github.com/damianstetson17/PyLicenciasPersonal/blob/main/img/msj_errors.png)
 
 ### En desarrollo 🛠️:
-* No contabilizar **días feriados** _(Estos cargables por el usuario)_ ni **fines de semana** a la hora de contabilizar los días de licencia
-* Caducidad de días correspondientes no utilizados en *X* cantidad de tiempo en desarrollo.
+* Conexión con SQLite
 * Graphic user interface.
 * Generación de Excels.
 
 ## 🔧 Construido con:
-
+* [PyQt5](https://pypi.org/project/PyQt5/)
 * [PyCharm](https://www.jetbrains.com/es-es/pycharm/)
 * [SQlite](https://www.sqlite.org/index.html)
 * [Lucidchart](www.lucidchart.com)
