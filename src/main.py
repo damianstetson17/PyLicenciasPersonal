@@ -10,36 +10,54 @@ if (__name__ == "__main__"):
     print("##################################INICIO CREAR EMPLEADOS (Main)##################################\n")                                                     #año,mes,día
     empleado1 = Persona.Persona(1, "Namis", datetime.datetime(2021, 1, 1))
     empleado2 = Persona.Persona(2, "Angy", datetime.datetime(2021, 1, 1))
+    empleRepetido = Persona.Persona(1, "Namis", datetime.datetime(2021, 1, 1))
     controlador.addPersona(empleado1)
     controlador.addPersona(empleado2)
+    controlador.addPersona(empleRepetido)
 
     print("##################################INICIO DIAS CORRESPONDIENTES (Main)##################################\n")
-    #generamos 10 días del año 2021 actual al empleado nro legajo 1
+    # generamos 10 días del año 2021 actual al empleado nro legajo 1
     diasNew = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2021, 3, 1), 10, True)
     controlador.generarDias_correspondiente(1, diasNew)
-    #generamos 25 días del año 2009 actual al empleado nro legajo 1
+    # generamos 25 días del año 2009 actual al empleado nro legajo 1
     diasNew2 = DiaCorrespondiente.DiaCorrespondiente(datetime.datetime(2009, 2, 1), 25, True)
     controlador.generarDias_correspondiente(1, diasNew2)
 
+    print("##################################INICIO CREAR FERIADOS (Main)##################################\n")
+    feriado1=datetime.datetime(2021, 3, 3)
+    controlador.addFeriado(feriado1)
+    feriado2 = datetime.datetime(2021, 3, 4)
+    controlador.addFeriado(feriado2)
+    feriado3 = datetime.datetime(2021, 3, 5)
+    controlador.addFeriado(feriado3)
+    #feriado repetido
+    feriadoRepetido = datetime.datetime(2021, 3, 3)
+    controlador.addFeriado(feriadoRepetido)
 
     #pedimos una licencia de 15 días (debería ocupar las 10 del 2021 y 5 del 2009)
     print("##################################INICIO LICENCIA CORRECTA (Main)##################################\n")
-    licNew = Licencia.Licencia(datetime.datetime(2021, 3, 1), datetime.datetime(2021, 3, 16))
+    licNew = Licencia.Licencia(datetime.datetime(2021, 3, 1), 15)
     controlador.generarLicencia(1, licNew)
-
+    """""
     # pedimos una licencia de 5 días (debería ocupar 5 del 2009)
-    licMay = Licencia.Licencia(datetime.datetime(2021, 5, 1),datetime.datetime(2021, 5, 6))
+    licMay = Licencia.Licencia(datetime.datetime(2021, 5, 1),5)
     controlador.generarLicencia(1,licMay)
 
-    # pedimos una licencia de 15 días (debería ocupar 5 del 2009)
-    licJun = Licencia.Licencia(datetime.datetime(2021, 6, 1), datetime.datetime(2021, 5, 16))
+    # pedimos una licencia de 15 días (debería ocupar 15 del 2009)
+    licJun = Licencia.Licencia(datetime.datetime(2021, 6, 1), 15)
     controlador.generarLicencia(1, licJun)
 
     print("##################################INICIO LICENCIA REPETIDA (Main)##################################\n")
-    licdupli = Licencia.Licencia(datetime.datetime(2021, 3, 1), datetime.datetime(2021, 3, 6))
+    licdupli = Licencia.Licencia(datetime.datetime(2021, 3, 1), 5)
     controlador.generarLicencia(1, licdupli)
-
+    """""
     print("##################################RESULTADOS FINALES (Main)##################################\n")
+    #imprime los días feriados existente
+    print("Feriados existentes:")
+    for feriado in controlador.getListaFeriados():
+        print(f"Existe el feriado '{feriado.strftime('%d/%m/%Y')}'")
+    print(f"\tTotal Feriados: {len(controlador.getListaFeriados())} \n")
+
     #imprime los empleados y sus licencias asociadas
     for empleado in controlador.getListaEmpleados():
         print(
@@ -48,13 +66,13 @@ if (__name__ == "__main__"):
         print(f"Licencias de {empleado.getNombreApe()}:")
         lisLic = list(empleado.getLicencias())
         for lic in lisLic:
-            print(f"\t╚»tiene la Licencia del {lic.getFecha_ini().strftime('%d/%m/%Y')} con {lic.getCantDias()} días")
+            print(f"\t╚»tiene la Licencia del {lic.getFechaIni().strftime('%d/%m/%Y')} al '{lic.getFechaFin().strftime('%d/%m/%Y')}' con {lic.getCantDiasPedidos()} días")
         print(f"\tTotal Licencias: {len(lisLic)} \n")
 
-    #imprimir
+    #imprimir días corresp por empleado
     for empleado in controlador.getListaEmpleados():
         print(f"Cantidad de días correspondientes del empleado '{empleado.getNombreApe()}'"
               f" nro de legajo '{empleado.getNroLegajo()}'")
-        for dias in empleado.getDias_correspondiente():
+        for dias in empleado.getDiasCorrespondienteList():
             print(f"\t╚»Año '{dias.getFecha().strftime('%Y')}' tiene '{dias.getDias()}' con el estado de '{dias.getEstado()}'")
         print("\n")

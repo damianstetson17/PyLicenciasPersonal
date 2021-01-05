@@ -12,10 +12,10 @@ class Persona():
         self.__activo = True
 
    #setters
-    def setNro_legajo(self, nroAgregar):
+    def setNroLegajo(self, nroAgregar):
       self.__nro_legajo=nroAgregar
 
-    def setNombre_apellido(self, nombreApe):
+    def setNombreApe(self, nombreApe):
       self.__nombre_apellido=nombreApe
 
     def setAntiguedad(self, antiNew):
@@ -24,7 +24,7 @@ class Persona():
     def setEstado(self, estado):
       self.__activo=estado
 
-    def addDias_correspondiente(self, diasNew):
+    def addDiasCorrespondiente(self, diasNew):
       self.__dias_correspondientes.append(diasNew)
 
    #getters
@@ -40,7 +40,7 @@ class Persona():
     def getEstado(self):
       return self.__activo
 
-    def getDias_correspondiente(self):
+    def getDiasCorrespondienteList(self):
       return self.__dias_correspondientes
 
     def getLicencias(self):
@@ -58,7 +58,7 @@ class Persona():
     def buscarLicencia(self, fecha_ini_busc, fecha_fin_busc):
       lic_buscados=None
       for l in self.__licencias:
-         if((l.getFecha_ini()==fecha_ini_busc)):
+         if((l.getFechaIni() == fecha_ini_busc)):
             lic_buscados=l
             break
       return lic_buscados
