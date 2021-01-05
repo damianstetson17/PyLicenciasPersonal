@@ -61,13 +61,13 @@ if (__name__ == "__main__"):
     licdupli = Licencia(datetime.datetime(2021, 3, 1), 5)
     controlador.generarLicencia(1, licdupli)
 
-    """
+
     print("##################################INSERCIÓN DE LIC VIEJA (Main)##################################\n")
     licVieja = Licencia(datetime.datetime(2009, 1, 1),5)
     diasViejosOcupados = DiasTomados(5,diasNew2)
     controlador.agregarDiasCorrespALicencia(licVieja,diasViejosOcupados)
     empleado1.getLicencias().append(licVieja)
-"""
+
     print("##################################RESULTADOS FINALES (Main)##################################\n")
     #imprime los días feriados existente
     print("Feriados existentes:")
