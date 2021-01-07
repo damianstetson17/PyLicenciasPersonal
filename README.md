@@ -34,7 +34,6 @@ El proyecto aún se encuentra **en desarrollo**.
 ## 🔧 Construido con:
 * [Lucidchart](www.lucidchart.com)
 * [Python 3.8.7](https://www.python.org/downloads/release/python-387/)
-* [PyQt5](https://pypi.org/project/PyQt5/)
 * [PyCharm](https://www.jetbrains.com/es-es/pycharm/)
 * [SQlite](https://www.sqlite.org/index.html)
 
