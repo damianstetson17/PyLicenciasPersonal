@@ -5,10 +5,12 @@ from src.modelo.Persona import Persona
 from src.modelo.DiaCorrespondiente import DiaCorrespondiente
 from src.modelo.Licencia import Licencia
 from src.modelo.DiasTomados import DiasTomados
+from src.vistas.MainMenu import VentanaPrincipal
 
 if (__name__ == "__main__"):
 
     controlador = LicenciaControlador()
+    ventPrint = VentanaPrincipal(800,500)
 
     print("##################################INICIO CREAR EMPLEADOS (Main)##################################\n")                                                     #año,mes,día
     empleado1 = Persona(1, "Namis", datetime.datetime(2021, 1, 1))
