@@ -47,7 +47,7 @@ Una fracción del mensaje mostrado por consola _(De la generación de licencias)
 
 ## 🦚 Aclaraciones 🦚
 
-Este proyecto se ha desarrollado con el fin de aprendizaje del lenguaje Python, como así generar una base sólida para el desarrollo de sistemas de gestiones de Licencias organizaciones.
+Este proyecto se ha desarrollado con el fin de aprendizaje del lenguaje Python, como así generar una base sólida para el desarrollo de sistemas de gestiones de Licencias de organizaciones.
 Por otra parte, se han desarrollado métodos _"getters & setters"_ basados en la filosofía de un fuerte encapsulamiento  esto no tendrá nunca la mísma filosofía planteada en **Java**. Existe un concepto que describe bien la diferencias en este: La idea del _"Programador Malvado"_ _(Por favor no malinterpretar esto, es simplemente una metáfora)_, en Java hay un encapsulamiento muy fuerte en los objetos, ciertas propiedades las podemos acceder solo mediante los métodos apropiados, la idea es que en **Java** se cuida a los objetos de este hipotético _"Programador Malvado"_, en **Python** esa idea se la reemplaza por un: _"somos todos adultos"_, es decir cada uno sabe lo que está haciendo, si quieres modificar un atributo interno de un objeto, perfecto, se supone que sabes lo que estás haciendo. Por lo que se han generado métodos hipotéticos que incluso algunos no se utilizan dentro del projecto. 
 
 _Todas estas imágenes y documentación se encuentran sujetas a cambios, que serán publicados en tiempo y forma._
